@@ -21,7 +21,7 @@ function LDAPSearch {
 }
 
 # Define the LDAP query for the "Administration" group
-$filter = "(&(objectCategory=department)(cn=Administration))"
+$filter = "(&(objectCategory=department)(cn=SophosAdministrator,))"
 
 # Execute the LDAPSearch function with the query
 $result = LDAPSearch -LDAPQuery $filter
