@@ -20,12 +20,15 @@ function LDAPSearch {
     return $DirectorySearcher.FindAll()
 }
 
-# Use the LDAPSearch function to query for the Administration group
+# Define the LDAP query for the "Administration" group
 $filter = "(&(objectCategory=group)(cn=Administration))"
+
+# Execute the LDAPSearch function with the query
 $result = LDAPSearch -LDAPQuery $filter
 
-# Print the results
+# Print the results directly
 Foreach ($obj in $result) {
-    Write-Host "Group: $($obj.Properties['cn'])"
+    Write-Host "Group Name: $($obj.Properties['cn'])"
+    Write-Host "Distinguished Name: $($obj.Properties['distinguishedName'])"
     Write-Host "------------------------------"
 }
